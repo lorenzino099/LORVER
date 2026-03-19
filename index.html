@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LORVER</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,600&family=Syncopate:wght@400;700&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- FIXED NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__wordmark">LORVER</div>
+    <div class="nav__links">
+      <a href="#about" class="nav__pill">About</a>
+      <a href="#services" class="nav__pill">Services</a>
+      <a href="#work" class="nav__pill">Work</a>
+    </div>
+    <button class="nav__cta" id="openBooking">Book a Call</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero__video-wrap">
+      <video class="hero__video" autoplay muted loop playsinline
+        poster="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1600&q=80">
+        <!-- Replace src with your own video file -->
+        <source src="" type="video/mp4" />
+      </video>
+      <div class="hero__overlay"></div>
+    </div>
+
+    <h1 class="hero__headline">
+      <span class="hero__line1">Built in the</span>
+      <em class="hero__line2">dark.</em>
+      <span class="hero__line3">Seen everywhere.</span>
+    </h1>
+
+    <!-- SEARCH -->
+    <div class="hero__search-wrap">
+      <div class="search-bar">
+        <span class="search-bar__icon">⌖</span>
+        <span class="search-bar__typewriter" id="typewriter"></span>
+        <input class="search-bar__input" id="searchInput" type="text" placeholder="" />
+      </div>
+    </div>
+
+    <!-- EDGE CHIPS -->
+    <div class="chip chip--tl">
+      <div class="chip__label">Projects</div>
+      <div class="chip__value">12+</div>
+    </div>
+    <div class="chip chip--tr">
+      <div class="chip__label">Est.</div>
+      <div class="chip__value">2024</div>
+    </div>
+    <div class="chip chip--bl">
+      <div class="chip__label">Based</div>
+      <div class="chip__value">Ireland</div>
+    </div>
+    <div class="chip chip--br">
+      <div class="chip__label">Status</div>
+      <div class="chip__value chip__value--live">● Live</div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="services__header">
+      <p class="section-label">What I Do</p>
+      <h2 class="section-title">Services</h2>
+    </div>
+    <div class="services__grid">
+      <div class="card" data-delay="0">
+        <div class="card__icon">◈</div>
+        <h3 class="card__title">Web Design</h3>
+        <p class="card__desc">Cinematic, high-converting landing pages and full sites built to stop the scroll and drive action.</p>
+      </div>
+      <div class="card" data-delay="1">
+        <div class="card__icon">◉</div>
+        <h3 class="card__title">Brand Identity</h3>
+        <p class="card__desc">Visual identity systems — wordmarks, palettes, and language — that make you look untouchable.</p>
+      </div>
+      <div class="card" data-delay="2">
+        <div class="card__icon">◌</div>
+        <h3 class="card__title">Digital Strategy</h3>
+        <p class="card__desc">Positioning, content, and growth systems built around where you want to be, not where you are.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about__inner">
+      <p class="section-label">The Person</p>
+      <h2 class="section-title about__title">One person.<br/><em>Corporate scale.</em></h2>
+      <p class="about__body">LORVER is a one-person operation built with the discipline of a studio and the speed of a solo founder. No committees. No delays. Just work that ships and results that compound.</p>
+      <button class="btn-outline" id="openBooking2">Start a Project →</button>
+    </div>
+    <div class="about__orb"></div>
+  </section>
+
+  <!-- BOOKING MODAL -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal" id="modal">
+      <button class="modal__close" id="closeModal">✕</button>
+
+      <!-- STEP INDICATORS -->
+      <div class="modal__steps">
+        <div class="step-dot active" data-step="1"></div>
+        <div class="step-line"></div>
+        <div class="step-dot" data-step="2"></div>
+        <div class="step-line"></div>
+        <div class="step-dot" data-step="3"></div>
+      </div>
+
+      <!-- STEP 1: SERVICE -->
+      <div class="modal__step" id="step1">
+        <h3 class="modal__title">What do you need?</h3>
+        <div class="modal__options">
+          <button class="option-btn" data-value="Web Design">Web Design</button>
+          <button class="option-btn" data-value="Brand Identity">Brand Identity</button>
+          <button class="option-btn" data-value="Digital Strategy">Digital Strategy</button>
+          <button class="option-btn" data-value="Other">Other</button>
+        </div>
+        <button class="modal__next" id="next1" disabled>Continue →</button>
+      </div>
+
+      <!-- STEP 2: CALENDAR -->
+      <div class="modal__step hidden" id="step2">
+        <h3 class="modal__title">Pick a date</h3>
+        <div class="calendar" id="calendar"></div>
+        <div class="timeslots" id="timeslots"></div>
+        <button class="modal__next" id="next2" disabled>Continue →</button>
+      </div>
+
+      <!-- STEP 3: CONFIRM -->
+      <div class="modal__step hidden" id="step3">
+        <h3 class="modal__title">Almost there</h3>
+        <input class="modal__input" id="bookName" type="text" placeholder="Your name" />
+        <input class="modal__input" id="bookEmail" type="email" placeholder="Your email" />
+        <textarea class="modal__input modal__textarea" id="bookNote" placeholder="Anything I should know? (optional)"></textarea>
+        <button class="modal__submit" id="submitBooking">Confirm Booking</button>
+      </div>
+
+      <!-- SUCCESS -->
+      <div class="modal__step hidden" id="stepSuccess">
+        <div class="modal__success">
+          <div class="success-icon">✦</div>
+          <h3 class="modal__title">You're booked.</h3>
+          <p class="modal__sub">I'll be in touch shortly. Keep building.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
